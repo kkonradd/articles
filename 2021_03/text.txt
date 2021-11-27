@@ -1,0 +1,177 @@
+Tytuł:
+Czym (nie) są sztuczne sieci neuronowe?
+
+Streszczenie:
+Sztuczne sieci neuronowe przez wielu odbierane są jako szczytowe osiągniecie w dziedzinie sztucznej inteligencji. Dzieje się tak za sprawą wszechobecnie występujących terminów DNN (Deep Neural Network) oraz CNN (Convolutional Neural Network) pojawiających się przy okazji prasowych doniesień o kolejnych sukcesach naukowców dążących do uzyskania inteligentnych algorytmów i urządzeń. Tak zwane Neural Engine i mechanizmy AI wspierające przetwarzanie danych, popularnie występujące np. w procesie przetwarzania obrazów cyfrowych są stałym elementem specyfikacji współczesnych telefonów i komputerów.
+
+Prowadzi to do złudnego przekonania, iż sztuczna inteligencja jest faktem i możemy jej zaufać powierzając jej nasze życie czy to w pojeździe autonomicznym czy diagnozie i leczeniu schorzeń. Niestety mało osób wie, że obraz jest bardzo jednostronny. Wraz z doniesieniami o sukcesach nie przekazuje się kluczowych informacji związanych z funkcjonowaniem sztucznych sieci neuronowych. Mało kto głośno mówi, że w zasadzie są one czarną skrzynką, o której działaniu nic nie wiemy i raczej nie będziemy mogli zbyt dużo powiedzieć. Mimo ogromnego rozgłosu i popularności za głębokim uczeniem nie stoi zbyt wiele teorii. Jeśli coś nie działa, trudno jest zrozumieć, dlaczego. Cała dziedzina jest nadal bardzo empiryczna i opiera się głownie na metodzie prób i błędów.
+
+W artykule opiszemy podstawy funkcjonowania sztucznych sieci neuronowych. Przedstawimy architekturę sieci konwolucyjnych i głębokich. Przedstawimy pola na których sieci te odnoszą sukcesy pokazując jednocześnie jak, dokładnie w tych samych zastosowaniach, łatwo je "oszukać". Zwrócimy uwagę na niebezpieczeństwa jakie z tym się wiążą. Spróbujemy nakreślić przyszłe kierunki w których zapewne sieci będą podążać i zaprezentujemy podejmowane w tym temacie badania naukowe.
+
+
+Section: Wstęp
+Głębokie sieci neuronowe (ang. Deep Neural Network, DNN), konwolucyjne sieci neuronowe (ang. Convolutional Neural Network, CNN) lub ogólniej: sztuczne sieci neuronowe a potocznie: sieci neuronowe — chyba każdy z nas zetknął się już z co najmniej z jednym z tych terminów, często w szerszym kontekście sztucznej inteligencji (ang. Artificial Intelligence) czy uczenia maszynowego (ang. Machine Learning). Sztuczne sieci neuronowe mają szczególne miejsce w dziedzinie sztucznej inteligencji ze względu na obszar jaki eksplorują. Ludzki mózg uznawany jest za ucieleśnienie inteligencji, przynajmniej tej jaką znamy na Ziemi. W dążeniu do skonstruowania tzw. sztucznej inteligencji nie dziwi zatem fakt "kopiowania" tego co przez tysiące lat wypracowała ewolucja.
+
+Mimo tego co niektórzy twierdzą, nasze poznanie budowy mózgu, procesów w nim zachodzący i ich wzajemnych interakcji jest dopiero na początku i czeka ludzkość jeszcze długa droga zanim będziemy w stanie efektywnie, w czysto użytkowy sposób, z tego skorzystać. Wizja maszyn przejmujących kontrolę nad ludźmi niewątpliwie nie może być rozpatrywana w kategoria tylko fantastyki naukowej, ale być może kolejnego etapu ewolucji. Filmy takiej jak Matrix (1999) czy wcześniejszy Terminator (1984) lub dużo mniej znany Eagle Aye (2008) pokazują co może się stać, gdy maszyny przejmą kontrolę nad światem. W ich (maszyn) precyzyjnie określonym świecie, kierowanym określonymi regułami, człowiek jawi się jako szkodnik, pasożyt i zagrożenie dla planety [1]. Choć zaprzeczaliśmy temu, trudno jest nie zgodzić się z takim punktem widzenia — trudno zaprzeczyć temu, że nadmiernie eksplorujemy nasze środowisko, wyniszczamy się na wzajem, a zwrot "światem rządzi pieniądz i nic innego się nie liczy" nie jest tylko pustym sloganem. 
+
+Z naukowego punktu widzenia interesujące jest nie tyle pytanie o to czy maszyny przejmą władzę nad ludźmi, ale czy maszyny przejmujące władzę nad ludźmi będą inteligentne, czy tylko będą inteligentnie się zachowywały. Można powiedzieć, że różnica nie jest wielka i jest to tylko gra słów. Językowo może i tak, ale na gruncie dziedziny nauki nazywanej sztuczną inteligencją jest to istotna różnica. Choć dla zewnętrznego obserwatora skutki będą takie same, to jednak przyczyny zupełnie inne, w czym jako ludzkość możemy upatrywać szans na przetrwanie dłużej niż prognozują to scenarzyści filmowi i autorzy książek.
+
+
+
+Section: Czy jest się czego obawiać?
+Nie udzielimy odpowiedzi na tytułowe pytanie — nie jest ona wcale łatwa i jednoznaczna. Zamiast tego przedstawimy fakty mogące przemawiać za odpowiedzią twierdzącą.
+
+[...przykłady gdy sieci działają...]
+
+- Wspomaganie lekarzy w interpretacji skanów i próbek tkanek pod kontem diagnozowania określonych chorób [7]
+- Autonomiczne pojazdy [8]
+- Redukowanie kosztów energii dla data centres.
+
+Z przytoczonych powyżej przykładów można wyciągnąć wniosek, iż stopień w jakim opanowaliśmy symulowanie czynności mózgu, zakres zastosowania i realna "skuteczność" uprawnia użycie określenia "inteligencja" w stosunku do sztucznych sieci neuronowych.
+
+
+
+Section: Jak zbudowana jest sztuczna sieć neuronowa?
+Podstawowym elementem tworzącym sztuczną sieć neuronową jest neuron. Wzorowany na neuronie biologicznym, realizuje jego podstawową funkcjonalność jako element reagujący w wyniku odebrania sumarycznego pobudzenia przekraczającego pewną progową wartość.
+
+
+[...budowa neuronu i sieci neuronowej...]
+[ funkcja błędu ]
+[ CNN, DNN ]
+
+Głębokie sieci neuronowe osiągnęły bardzo wysoką, czasem konkurującą z możliwościami człowieka, wydajność w wielu zadaniach widzenia komputerowego. W oparciu o te sukcesy coraz częściej są one wykorzystywane jako element składowe systemów sterujących w samochodami, bezzałogowymi statkami powietrznymi i robotami. Zauważmy jednakże, że głębokie sieci neuronowe nie wnoszą niczego nowego do teoretycznych podstaw budowy i działania sztucznych sieci neuronowych. W pewnym sensie znane były odkąd zaczęto używać wielowarstwowych sztucznych sieci neuronowych. Ich potencjalne możliwości także były znane już dawno temu. To, że dopiero w ostatnich latach przeżywają one swój rozkwit nie zawdzięczają żadnym wartym uwagi koncepcjom czy ideom, ale dostępności sprzętu, który jest zdolny do masowych obliczeń macierzowych (głównie karty graficzne), co umożliwiło ich wykorzystanie w praktyce.
+
+Z matematycznego punktu widzenia, każda sieć neuronowa jest funkcją. Teoretycznie można by badać jej własności i przez to powiedzieć coś o działaniu konkretnej sieci. W praktyce, stopień złożoności takiej sieci (funkcji) jest tak duży, że jej analiza jest niezmiernie złożonym zagadnieniem. W konsekwencji zwykle jedyne co wiemy, to fakt przekształcania "w jakiś sposób" sygnałów wejściowych na sygnały wyjściowe. Niestety nie potrafimy zanalizować tego procesu bardziej szczegółowo. Przez to sztuczna sieć neuronowa określana jest mianem 
+"czarnej skrzynki" wykonującej "magicznie" określone zadanie. Przynajmniej tak byśmy chcieli wierzyć. "Głównym twierdzeniem sztucznych sieci neuronowych jest to, że ucieleśniają one nowe i potężne ogólne zasady przetwarzania informacji. Te zasady są źle zdefiniowane. Często twierdzi się, że wyłaniają się one z samej sieci. Dzięki temu proste powiązanie statystyczne (podstawowa funkcja sztucznych sieci neuronowych) można opisać jako uczenie się lub rozpoznawanie. W 1997 roku Alexander Dewdney skomentował to mówiąc, że [...] rozwiązania znajdują się jak za dotknięciem czarodziejskiej różdżki" [2] "[...] można by stworzyć działającą sieć, nie rozumiejąc, jak ona działa: zbiór liczb, który opisuje jej zachowanie byłby według wszelkiego prawdopodobieństwa 'nieprzezroczystą, nieczytelną tabelą... bezwartościową jako zasób naukowy'". [2]
+
+
+
+Section: A jednak nie zawsze działa
+Czarnoskrzynkowa natura sztucznych sieci neuronach, przy ich jednoczesnej skuteczności w wielu zastosowaniach i łatwa dostępność za sprawą narzędzi typu Keras, prowadzi do rosnącego braku odpowiedzialności za to co sztuczne sieci neuronowe zrobią. Popularny dziś model postępowania w środowisku tzw. data scientist-ów, jak sami siebie określają ludzie zajmujący się na codzień pracą z danymi, jest taki, że w przypadku braku znanego postępowania bierze się narzędzie do trenowania sieci neuronowych i rozpoczyna z nim pracę. Praca ta ma charakter metodyki opartej o serię prób i błędów. Tak długo próbuje się zbudować odpowiednią sieć, kierując się doświadczeniem i intuicją, aż w pewnym momencie podczas testów uzyskamy zadowalająco niski poziom błędu. Wówczas uznajemy, że sieć jest nauczona i gotowa do pracy. I sieć zaczyna pracę. Jako element sterownika w samolocie, samochodzie narzędziu diagnostycznym czy decydującym o przyznaniu kredytu na mieszkanie.  Nie przypadkowo napisaliśmy powyżej o intuicji i doświadczeniu, gdyż nie ma metod pozwalających "wyliczyć" sztuczną sieć neuronową. W zasadzie, to o "gotowej" sieci nic nie potrafimy powiedzieć. Może z wyjątkiem stwierdzenia, że na danych testowych działa. To jednak nie jest żadnym dowodem. Każdy matematyk wie, że aby obalić pewne twierdzenie, wystarczy wskazać jeden przykład, dla którego ono nie działa. Aby jednak wykazać jego prawdziwość, trzeba wykazać jego działanie dla wszystkich możliwych przykładów. Jest to podstawowa prawda o której osoby korzystające ze sztucznych sieci neuronowych zapominają. Sankcjonują poprawność modelu zbudowanego w oparciu o sieć neuronową przez odpowiednio dużą liczbę przykładów potwierdzających jej działanie. Tym czasem każdy matematyk (a data scientist elementarną wiedzę w zakresie matematyki musi posiadać) wie, że... Zobaczmy, do czego takie lekceważące podejście prowadzi.
+
+W pracy [4] autorzy podają algorytm pozwalający przeprowadzić skuteczny atak na głębokie sieci neuronowe przetwarzające dane wizyjne. Jako przykład podają obraz drogowego znaku stop oznaczającego bezwzględny nakaz zatrzymania auta, zwykle umieszczany w miejscach niebezpiecznych, gdzie wymagane jest ustąpienie pierwszeństwa przejazdu. Okazuje się, że naklejenie na znak kilku małych naklejek w postaci białych i czarnych prostokątów, zupełnie nieistotnych z punktu widzenia człowieka, powoduje, że bezbłędnie działająca do tej pory sieć, rozpoznaje zamiast znaku stop, znak ograniczający prędkość do 40 mil na godzinę (około 64 km/h). Zauważmy, że czasami podobne naklejki pojawiają się na znakach drogowych i zwykle umieszczane są przez kibiców piłkarskich manifestujących w ten sposób swój stosunek do drużyn piłkarskich. Jak pokazuje opisany eksperyment, ta z pozoru niewinna zabawa, może mieć dramatyczne konsekwencje w przypadku np. autonomicznego pojazdu, który zamiast zatrzymać się, beztrosko wjedzie na skrzyżowanie.
+
+Autorzy pracy [5] podają metodę ataku na sieć neuronową identyfikującą twarze. Okazuje się, że wystarczy do czapki przykleić prostokątną karteczkę z kolorowym wzorem aby drastycznie zredukować możliwość rozpoznania twarzy. W ten sposób można by np. oszukać system monitorujący dostęp do pomieszczenia, który najzwyczajniej "nie zauważyłby" przechodzącej osoby.
+
+W pracy [6] znajdujemy przykład pokazujący jak spreparować obraz aby system zobaczył coś, czego na nim nie ma (a przynajmniej, czego człowiek nie widzi) — w tym przypadku zamiast ulicy z pojazdami, system dostrzeże jedynie postać Minionka. W tej samej pracy pokazany jest także atak na system określający pozę człowieka a także system rozpoznający mowę. Ten ostatni błędnie rozpoznawał zmodyfikowane wypowiedzi, które dla człowieka wciąż brzmiały identycznie jak oryginały.
+
+W artykule [9] podanych jest wiele przykładów błędnego działania systemów sztucznej inteligencji, np. błędne klasyfikowanie osób z astmą jako tych o niskim ryzyku wystąpienia zapalenia płuc.
+
+Z kolei w [3] pokazano przykład takiego spreparowania obrazu, aby pomimo nieodróżnialności przez człowieka od oryginału leniwiec znajdujący się na drzewie był rozpoznawany jako bolid F1, a panda jako gibon.
+
+Choć opisane eksperymenty dotyczą głównie obrazu, to zasady działania sieci są identyczne bez względu na wykonywane przez nie zadanie. Oznacza to, że podobnym atakom może ulec każda sztuczna sieć neuronowa.
+
+[...przykłady, gdy sieć nie zadziałała...]
+[...więcej przykładów?...]
+
+
+
+Section: Konsekwencje
+Poprzednią sekcję można by było zakończyć stwierdzeniem, że podane przykłady są marginalne, wydumane i zdarzają się z bardzo małym prawdopodobieństwem. Autorzy tej pracy nie chcieli by jednak być nigdy rozjechani przez auto którego kontroler ruchu sterowany przez sztuczną sieć neuronową mimo wszystko popełnił mało prawdopodobny błąd. Tak samo nie chcieliby być źle zdiagnozowani tylko dlatego, że ich przypadek chorobowy jest marginalny, albo samolot którym podróżowali spadł, gdyż jednak wstąpiły warunki pogodowe zaklasyfikowane wcześniej jako zbyt wydumane i z tego powodu niewystępujące w zbiorze testowym.
+
+Jak możemy przeczytać w [3]:
+'W swoich wysiłkach, aby dowiedzieć się, co jest nie tak [z głębokimi sieciami neuronowymi], naukowcy odkryli wiele powodów, dla których [one] zawodzą. "Nie ma sposobu naprawienia podstawowych [leżących u podstaw działania] słabości głębokich sieci neuronowych" — przekonuje François Chollet, inżynier AI w Google w Mountain View w Kalifornii.
+[...]
+"Każdy, kto bawił się uczeniem maszynowym wie, że te systemy od czasu do czasu popełniają głupie błędy", mówi Yoshua Bengio z University of Montreal w Kanadzie, który jest pionierem głębokiego uczenia się. "Niespodzianką [dla nas] był rodzaj błędu", mówi. "To było całkiem uderzające. To rodzaj błędu, którego nie wyobrażaliśmy sobie, że może się wydarzyć".
+[...]
+Sztuczna inteligencja wyszkolona w rozpoznawaniu samolotów może stwierdzić, że cechy, takie jak kolory obszarów, tekstury lub tła, są tak samo silnymi predyktorami, jak rzeczy, które [my ludzie] uznalibyśmy za istotne, takie jak skrzydła. Ale oznacza to również, że bardzo mała zmiana danych wejściowych może przekształcić je do postaci, którą sztuczna inteligencja potraktuje jako inny stan [w przeciwieństwie do człowieka, dla którego oba stany będą reprezentowały taką samą informację].'
+
+[...potencjalne zagrożenia...]
+
+
+
+Section: Czy możemy coś z tym zrobić?
+Czy możemy coś z tym zrobić? Z pewnością możemy próbować. Problem polega na tym, że postęp nad badaniami związanymi ze sztucznymi sieciami neuronowymi jest niewspółmierny do znacznych zasobów poświęcanych na nie. Trudno wskazać istotne kamienie milowe przekroczone na drodze do lepszego ich wykorzystania. Obecnie wykorzystywany model neuronu zaproponowany został w roku 1943 i nie uległ od tego czasu żadnym zmianom. Możliwości są zatem dwie: albo model jest taki doskonały, albo ludzie nie potrafią go ulepszyć. Podstawowym zarzutem wysuwanym w kierunku sztucznych sieci neuronowych jest to, że nie odzwierciedlają one w wystarczającym stopniu faktycznego funkcjonowania neuronów. Propagacja wsteczna, choć jest istotnym narzędziem pozwalającym obecnie uczyć nam nasze sztuczne sieci neuronowe, to nie znajduje odpowiednika w biologicznych strukturach — taki mechanizm nie istnieje w biologicznych sieciach neuronowych. Nadal nie wiadomo, w jaki sposób informacje są kodowane przez prawdziwe neurony. Jest jeszcze inna możliwość: zostaliśmy uśpieni przez sukcesy sztucznych sieci neuronowych i sami przed sobą udajemy, nie chcemy dostrzec, ich wad. Zaznaczmy to raz jeszcze: poprawność działania sztucznej sieci neuronowej wykazana na zbiorze testowym, wykazuje tylko i wyłącznie poprawność jej działania na zbiorze testowym. Jakiekolwiek inne stwierdzenia nie posiadają umocowania w dorobku naukowym ludzkości. W tym kontekście prace prowadzone w Katedrze Analizy Matematycznej i Sterowania Uniwersytetu Łódzkiego wydają się wytyczać nowy i właściwy kierunek badań. Wzorując się na modelu uczenia maszynowego wprowadzonym przez Vladimira Vapnika [vapnik] rozważamy blok uczenia maszynowego jako zbiór funkcji. Ponieważ, jak zauważyliśmy to wcześniej, sztuczna sieć neuronowa jest funkcją (może być przez funkcję opisana), zatem elementami tego bloku mogą być sieci neuronowe. Stosując podejście z zakresu teorii optymalizacji do tego bloku możemy coś o nim wnioskować — mówiąc inaczej, możemy wnioskować coś o pewnych sieciach neuronowych. Jeśli tylko potrafimy opisać metodę konstruowania sieci w terminach matematycznych, wówczas możemy precyzyjnie określić jaka rodzina sieci neuronowych tworzy blok uczenia maszynowego. Dzięki temu możemy wnioskować coś o wszystkich sieciach neuronowych możliwych do uzyskania w ramach tej rodziny. Badając własności konkretnej rodziny, możemy określić na ile konkretna sieć z tej rodziny jest optymalna. Innymi słowy, możemy powiedzieć, czy możemy mieć sieć jeszcze lepszą czy jest to już niemożliwe bo obecna sieć jest najlepsza (optymalna) w ramach określonej rodziny sieci budowanych według pewnych ustalonych reguł. Zauważmy, że to podejście nie opiera się na tym co mamy dziś, czyli określaniu możliwości jednej wybranej sieci na podstawie przykładów uczących i testowych mających jakoby potwierdzić jej jakość. Zamiast tego dotykamy tego, czego ciągle nam brakuje w teorii sztucznych sieci neuronowych: odpowiedzi na pytanie czy sieć, działająca dobrze na danych testowych, zadziała tak samo dobrze na danych które dostarczymy jej kiedykolwiek w przyszłości. W ten sposób możemy "zmierzyć" i wyrazić za pomocą liczby podatność sieci na bycie "oszukaną" lub możliwość popełnienia błędu w przyszłości, nawet gdyby wszelkie dotychczasowe testy potwierdzały 100% skuteczność.
+
+
+Bibliografia:
+
+[1]
+53 Best Matrix Quotes That You Won't Want To Dodge
+https://kidadl.com/articles/best-matrix-quotes-that-you-wont-want-to-dodge
+“Human beings are a disease, cancer of this planet.”
+
+– Agent Smith, ‘The Matrix' (1999).
+
+Hugo Weaving: Agent Smith
+https://www.imdb.com/title/tt0133093/characters/nm0915989
+Agent Smith : I'd like to share a revelation that I've had during my time here. It came to me when I tried to classify your species and I realized that you're not actually mammals. Every mammal on this planet instinctively develops a natural equilibrium with the surrounding environment but you humans do not. You move to an area and you multiply and multiply until every natural resource is consumed and the only way you can survive is to spread to another area. There is another organism on this planet that follows the same pattern. Do you know what it is? A virus. Human beings are a disease, a cancer of this planet. You're a plague and we are the cure.
+
+[2]
+Artificial neural network
+https://en.wikipedia.org/wiki/Artificial_neural_network
+
+A central claim of ANNs is that they embody new and powerful general principles for processing information. These principles are ill-defined. It is often claimed that they are emergent from the network itself. This allows simple statistical association (the basic function of artificial neural networks) to be described as learning or recognition. In 1997, Alexander Dewdney commented that, as a result, artificial neural networks have a "something-for-nothing quality, one that imparts a peculiar aura of laziness and a distinct lack of curiosity about just how good these computing systems are. No human hand (or mind) intervenes; solutions are found as if by magic; and no one, it seems, has learned anything".
+
+[vapnik]
+
+[4]
+
+Kevin Eykholt∗1, Ivan Evtimov*2, Earlence Fernandes2, Bo Li3,
+Amir Rahmati4, Chaowei Xiao1, Atul Prakash1, Tadayoshi Kohno2, and Dawn Song
+Robust Physical-World Attacks on Deep Learning Visual Classification
+https://arxiv.org/pdf/1707.08945.pdf
+
+[5]
+Advhat: Real-World Adversarial Attack On Arcface Face Id System
+Stepan Komkov1,2, Aleksandr Petiushko
+https://arxiv.org/pdf/1908.08705.pdf
+
+[6]
+Houdini: Fooling Deep Structured Prediction Models
+Moustapha Cisse
+Natalia Neverova*
+Yossi Adi*
+Joseph Keshet
+https://arxiv.org/pdf/1707.05373.pdf
+
+
+[3]
+NEWS FEATURE
+09 October 2019
+Why deep-learning AIs are so easy to fool
+Artificial-intelligence researchers are trying to fix the flaws of neural networks.
+Douglas Heaven
+https://www.nature.com/articles/d41586-019-03013-5
+Nature 574, 163-166 (2019)
+doi: https://doi.org/10.1038/d41586-019-03013-5
+
+[7]
+Neil Savage
+Digital assistants aid disease diagnosis
+Artificial intelligence could help clinicians to interpret scans and tissue samples
+Nature 573, S98-S99 (2019)
+25 September 2019
+doi: https://doi.org/10.1038/d41586-019-02870-4
+https://www.nature.com/articles/d41586-019-02870-4
+
+
+[8]
+Waldrop, M. Autonomous vehicles: No drivers required. Nature 518, 20–23 (2015). https://doi.org/10.1038/518020a
+https://www.nature.com/articles/518020a
+
+[9]
+Crawford, K., Calo, R. There is a blind spot in AI research. Nature 538, 311–313 (2016). https://doi.org/10.1038/538311a
+https://www.nature.com/articles/538311a#citeas
+
+
+
+
+
+
+
+
+
+
+=== INNE ===
+
+Artificial neural network
+https://en.wikipedia.org/wiki/Artificial_neural_network
+
+22. “What is 'real'? How do you define 'real'? If you’re talking about what you can feel, what you can smell, taste and see then 'real' is simply electrical signals interpreted by your brain.”
+
+- Morpheus, ‘The Matrix' (1999).
+
+
+
+
