@@ -12,7 +12,7 @@ W artykule opiszemy podstawy funkcjonowania sztucznych sieci neuronowych. Przeds
 Section: Wstęp
 Głębokie sieci neuronowe (ang. Deep Neural Network, DNN), konwolucyjne sieci neuronowe (ang. Convolutional Neural Network, CNN) lub ogólniej: sztuczne sieci neuronowe a potocznie: sieci neuronowe — chyba każdy z nas zetknął się już z co najmniej z jednym z tych terminów, często w szerszym kontekście sztucznej inteligencji (ang. Artificial Intelligence) czy uczenia maszynowego (ang. Machine Learning). Sztuczne sieci neuronowe mają szczególne miejsce w dziedzinie sztucznej inteligencji ze względu na obszar jaki eksplorują. Ludzki mózg uznawany jest za ucieleśnienie inteligencji, przynajmniej tej jaką znamy na Ziemi. W dążeniu do skonstruowania tzw. sztucznej inteligencji nie dziwi zatem fakt "kopiowania" tego co przez tysiące lat wypracowała ewolucja.
 
-Mimo tego co niektórzy twierdzą, nasze poznanie budowy mózgu, procesów w nim zachodzący i ich wzajemnych interakcji jest dopiero na początku i czeka ludzkość jeszcze długa droga zanim będziemy w stanie efektywnie, w czysto użytkowy sposób, z tego skorzystać. Wizja maszyn przejmujących kontrolę nad ludźmi niewątpliwie nie może być rozpatrywana w kategoria tylko fantastyki naukowej, ale być może kolejnego etapu ewolucji. Filmy takiej jak Matrix (1999) czy wcześniejszy Terminator (1984) lub dużo mniej znany Eagle Aye (2008) pokazują co może się stać, gdy maszyny przejmą kontrolę nad światem. W ich (maszyn) precyzyjnie określonym świecie, kierowanym określonymi regułami, człowiek jawi się jako szkodnik, pasożyt i zagrożenie dla planety [1]. Choć zaprzeczaliśmy temu, trudno jest nie zgodzić się z takim punktem widzenia — trudno zaprzeczyć temu, że nadmiernie eksplorujemy nasze środowisko, wyniszczamy się na wzajem, a zwrot "światem rządzi pieniądz i nic innego się nie liczy" nie jest tylko pustym sloganem. 
+Mimo tego co niektórzy twierdzą, nasze poznanie budowy mózgu, procesów w nim zachodzący i ich wzajemnych interakcji jest dopiero na początku i czeka ludzkość jeszcze długa droga zanim będziemy w stanie efektywnie, w czysto użytkowy sposób, z tego skorzystać. Wizja maszyn przejmujących kontrolę nad ludźmi niewątpliwie nie może być rozpatrywana w kategoria tylko fantastyki naukowej, ale być może kolejnego etapu ewolucji. Filmy takiej jak Matrix (1999) czy wcześniejszy Terminator (1984) lub dużo mniej znany Eagle Eye (2008) pokazują co może się stać, gdy maszyny przejmą kontrolę nad światem. W ich (maszyn) precyzyjnie określonym świecie, kierowanym określonymi regułami, człowiek jawi się jako szkodnik, pasożyt i zagrożenie dla planety [1]. Choć zaprzeczaliśmy temu, trudno jest nie zgodzić się z takim punktem widzenia — trudno zaprzeczyć temu, że nadmiernie eksplorujemy nasze środowisko, wyniszczamy się na wzajem, a zwrot "światem rządzi pieniądz i nic innego się nie liczy" nie jest tylko pustym sloganem. 
 
 Z naukowego punktu widzenia interesujące jest nie tyle pytanie o to czy maszyny przejmą władzę nad ludźmi, ale czy maszyny przejmujące władzę nad ludźmi będą inteligentne, czy tylko będą inteligentnie się zachowywały. Można powiedzieć, że różnica nie jest wielka i jest to tylko gra słów. Językowo może i tak, ale na gruncie dziedziny nauki nazywanej sztuczną inteligencją jest to istotna różnica. Choć dla zewnętrznego obserwatora skutki będą takie same, to jednak przyczyny zupełnie inne, w czym jako ludzkość możemy upatrywać szans na przetrwanie dłużej niż prognozują to scenarzyści filmowi i autorzy książek.
 
@@ -21,23 +21,31 @@ Z naukowego punktu widzenia interesujące jest nie tyle pytanie o to czy maszyny
 Section: Czy jest się czego obawiać?
 Nie udzielimy odpowiedzi na tytułowe pytanie — nie jest ona wcale łatwa i jednoznaczna. Zamiast tego przedstawimy fakty mogące przemawiać za odpowiedzią twierdzącą.
 
-[...przykłady gdy sieci działają...]
-
 - Wspomaganie lekarzy w interpretacji skanów i próbek tkanek pod kontem diagnozowania określonych chorób [7]
 - Autonomiczne pojazdy [8]
-- Redukowanie kosztów energii dla centrów danych.
+- Redukowanie kosztów energii dla centrów danych
+- Tłumaczenia maszynowe, porównywalne z profesjonalnymi tłumaczami [15]
+- Inteligentni wirtualni asystenci (Google Assistant, Alexa, Siri)
+- Deepfake, czyli technika do nakładania obrazów, w tym również zamiana twarzy aktorów występujących w filmach [16]
 
 Z przytoczonych powyżej przykładów można wyciągnąć wniosek, iż stopień w jakim opanowaliśmy symulowanie czynności mózgu, zakres zastosowania i realna "skuteczność" uprawnia użycie określenia "inteligencja" w stosunku do sztucznych sieci neuronowych.
 
 
 
 Section: Jak zbudowana jest sztuczna sieć neuronowa?
-Podstawowym elementem tworzącym sztuczną sieć neuronową jest neuron. Wzorowany na neuronie biologicznym, realizuje jego podstawową funkcjonalność jako element reagujący w wyniku odebrania sumarycznego pobudzenia przekraczającego pewną progową wartość.
+Podstawowym elementem tworzącym sztuczną sieć neuronową jest neuron. Wzorowany na neuronie biologicznym, realizuje jego podstawową funkcjonalność jako element reagujący w wyniku odebrania sumarycznego pobudzenia przekraczającego pewną progową wartość. Pierwszy model sztucznego neuronu został przedstawiony już w latach 40 ubiegłego wieku. Sygnały wejściowe są wprowadzane do odpowiedników biologicznych dendrytów. Ich wartości początkowo przyjmowały stany binarne, co odnosiło się do biologicznego wystąpienia impulsu w danej chwili lub jego braku. Wyznaczanie sumarycznego pobudzenia polega na pomnożeniu wejść przez ich wagi, a następnie ich zsumowaniu. Sztuczny neuron zmienia wartość wyjściową po przekroczeniu progu aktywacji (lub ogólniej mówiąc funkcji aktywacji). Łącząc neurony ze sobą możemy tworzyć sieci, które w zależności od konfiguracji mają różne właściwości. Rozróżniamy warstwy, wewnątrz których neurony pracują niezależnie od siebie, przekazując dalsze informacje kolejnym warstwom (przez połączenia z parametrami, tj. wagami) lub są już końcowym wyjściem z sieci. 
 
+Najprostsza sieć neuronowa jest zbudowana z jednej warstwy. Taka sieć realizuje liniową funkcję dyskryminacyjną (klasyfikację), czyli może określić do jakiej klasy należy wzorzec wejściowy. W przypadku sieci z jednym neuronem i dwoma wejściami granicą decyzyjną jest prosta. Dla większej ilości wejść, podział przestrzeni realizuje pewna hiperpłaszczyzna. Rozszerzenie takiego modelu o więcej neuronów prowadzi do uzyskania większej ilości wyjść z sieci, a tym samym możliwość klasyfikacji w większej ilości klas. Dalsza modyfikacja sieci polega na dodaniu tzw. warstwy ukrytej, czyli takiej, której wyjście jest wejściem dla kolejnej warstwy z neuronami i umożliwia nieliniową klasyfikację (lub aproksymację).
 
-[...budowa neuronu i sieci neuronowej...]
-[ funkcja błędu ]
-[ CNN, DNN ]
+Kamieniem milowym w rozwoju sztucznych sieci neuronowych było opracowanie propagacji wstecznej, czyli algorytmu uczenia sieci neuronowych [14]. Dzięki wyznaczeniu błędów delta można modyfikować wartości wag połączeń w sieci. Obliczenia w procesie uczenia są wykonywane od końca, czyli od ostatniej warstwy w sieci, co jest kierunkiem przeciwnym do normalnego przepływu sygnałów podczas wyznaczania odpowiedzi. Ujmując matematycznie, jest to gradientowa metoda minimalizacji funkcji wielu zmiennych, więc wyjście z neuronu powinna wyznaczać różniczkowalna funkcję aktywacji.
+
+Dane empiryczne dzieli się na poszczególne części – zbiór uczący, walidujący i testowy. Zbiór uczący służy do optymalizacji parametrów (wag) sieci. Zbiór walidujący pozwala dopracować strukturę modelu sieci na etapie uczenia. Zbiór testowy służy zaś do ostatecznego sprawdzenia, jak sieć radzi sobie z nieznanymi danymi po zakończeniu nauki. Poprawność działania sieci jest obliczana dla każdego z tych zbiorów oddzielnie. W zależności od charakteru sieci używana jest funkcja błędu, która umożliwia wyznaczenie odległości między pożądaną wartością pochodzącą ze zbioru danych, a odpowiedzią sieci.
+
+Teoretycznie jest możliwość budowy sieci ze skończoną ilością neuronów w jednej warstwie ukrytej, która powinna dobrze aproksymować zbiór uczący [13], jednak w praktyce ilość neuronów powinna być wykładniczo duża. Co więcej, nie wiemy czy algorytm uczący daną sieć uzyska optymalne rozwiązanie. Alternatywnym podejściem jest dodanie większej ilości warstw. Przekształcanie początkowej reprezentacji danych na inne wersje w następujących po sobie warstwach modelu pozwala rozwiązywać złożone problemy.
+
+Przetwarzanie danych w wielu krokach może zostać przedstawione na przykładzie rozpoznawania obrazu. Surowa reprezentacja takiego obiektu to macierz. Pierwszy etap może wykrywać krawędzie na zdjęciu przez porównywanie jasności sąsiednich elementów macierzy. Następny krok to detekcja wierzchołków, a dalej wykrywanie fragmentów specyficznych elementów. Ostatnia warstwa realizuje klasyfikator przedmiotów zawartych na obrazie. Przedstawiony pomysł to koncepcja deep learningu, czyli w szczególności głębokich sieci neuronowych DNN (ang. deep neural network). 
+
+Głębokie uczenie stało się bardzo popularne, a równocześnie wzrosła też liczebność zbiorów i ilość danych na podstawie których można projektować model, a następnie go uczyć. Największą popularność zdobyły m.in. sieci konwolucyjne CNN (ang. convolutional neural network), implementujące operację splotu zamiast mnożenia macierzy wagowych. Sieci te wykorzystywane są do przetwarzania danych, których reprezentacja może być przedstawiona w postaci siatki, jednowymiarowej (np. szeregi czasowe) lub wielowymiarowej (np. obrazy).
 
 Głębokie sieci neuronowe osiągnęły bardzo wysoką, czasem konkurującą z możliwościami człowieka, wydajność w wielu zadaniach widzenia komputerowego. W oparciu o te sukcesy coraz częściej są one wykorzystywane jako element składowe systemów sterujących w samochodami, bezzałogowymi statkami powietrznymi i robotami. Zauważmy jednakże, że głębokie sieci neuronowe nie wnoszą niczego nowego do teoretycznych podstaw budowy i działania sztucznych sieci neuronowych. W pewnym sensie znane były odkąd zaczęto używać wielowarstwowych sztucznych sieci neuronowych. Ich potencjalne możliwości także były znane już dawno temu. To, że dopiero w ostatnich latach przeżywają one swój rozkwit nie zawdzięczają żadnym wartym uwagi koncepcjom czy ideom, ale dostępności sprzętu, który jest zdolny do masowych obliczeń macierzowych (głównie karty graficzne), co umożliwiło ich wykorzystanie w praktyce.
 
@@ -61,9 +69,9 @@ Z kolei w [3] pokazano przykład takiego spreparowania obrazu, aby pomimo nieodr
 
 Choć opisane eksperymenty dotyczą głównie obrazu, to zasady działania sieci są identyczne bez względu na wykonywane przez nie zadanie. Oznacza to, że podobnym atakom może ulec każda sztuczna sieć neuronowa.
 
-[...przykłady, gdy sieć nie zadziałała...]
-[...więcej przykładów?...]
+Kolejnym przykładem jest sieć neuronowa służąca do rozpoznawania mowy. Autorzy pracy [10] poddawali manipulacji nagrania dźwiękowe. Różnica pomiędzy oryginalnymi nagraniami i odpowiednio spreparowanymi nie była zauważalna dla człowieka, ale doprowadziła do uzyskania całkowicie odmiennej transkrypcji wymawianych słów.
 
+Innym rodzajem ataku jest zatruwanie danych (ang. data poisoning), które służą do uczenia sieci neuronowych. W roku 2016 powstał chatbot Tay opracowany przez firmę Microsoft do którego każdy internauta mógł napisać wiadomość przez portal Twitter. Nauka bota nie zakończyła się jednak wraz z jego udostępnieniem dla szerokiej publiczności w internecie, a była kontynuowana na podstawie dalszych interakcji z ludźmi. Część użytkowników rozpoczęła tak zwany "atak troli" polegający na przesyłaniu wiadomości, które były niepoprawne politycznie lub były sprzeczne z rzeczywistymi faktami. Po zaledwie 16 godzinach Tay przesłał ponad 96000 wiadomości i został zawieszony, ponieważ nauczył się naśladować zachowania ofensywnych użytkowników [11]. Nie jest do końca jasne, jak wyglądała architektura, która była podstawą działaniem bota. Wiadome jest jednak, że problem zatrutych danych może dotknąć sieci neuronowe, które uczą się także w trakcie działania, na nowo pozyskanych danych.
 
 
 Section: Konsekwencje
@@ -76,8 +84,7 @@ Jak możemy przeczytać w [3]:
 [...]
 Sztuczna inteligencja wyszkolona w rozpoznawaniu samolotów może stwierdzić, że cechy, takie jak kolory obszarów, tekstury lub tła, są tak samo silnymi predyktorami, jak rzeczy, które [my ludzie] uznalibyśmy za istotne, takie jak skrzydła. Ale oznacza to również, że bardzo mała zmiana danych wejściowych może przekształcić je do postaci, którą sztuczna inteligencja potraktuje jako inny stan [w przeciwieństwie do człowieka, dla którego oba stany będą reprezentowały taką samą informację].'
 
-[...może jeszcze coś...]
-
+Jak widać, można odpowiednio spreparować dane, które są nierozróżnialne od oryginału dla człowieka, ale znaczą zupełnie coś innego dla modelu sztucznej sieci neuronowej. Jeszcze większe możliwości daje manipulacja sieciami, które douczają się w trakcie działania. Mogą być one podatne na zorganizowane ataki, które celowo wprowadzają błędy lub zniekształcenia do modelu, którego parametry są na bieżąco aktualizowane.
 
 
 Section: Czy możemy coś z tym zrobić?
@@ -110,7 +117,10 @@ https://en.wikipedia.org/wiki/Artificial_neural_network
 
 A central claim of ANNs is that they embody new and powerful general principles for processing information. These principles are ill-defined. It is often claimed that they are emergent from the network itself. This allows simple statistical association (the basic function of artificial neural networks) to be described as learning or recognition. In 1997, Alexander Dewdney commented that, as a result, artificial neural networks have a "something-for-nothing quality, one that imparts a peculiar aura of laziness and a distinct lack of curiosity about just how good these computing systems are. No human hand (or mind) intervenes; solutions are found as if by magic; and no one, it seems, has learned anything".
 
-[vapnik] potrzebne dokładne dane
+[vapnik]
+Vapnik, V.
+The Nature of Statistical Learning Theory. Springer New York (2000)
+
 
 [4]
 
@@ -161,14 +171,31 @@ https://www.nature.com/articles/518020a
 Crawford, K., Calo, R. There is a blind spot in AI research. Nature 538, 311–313 (2016). https://doi.org/10.1038/538311a
 https://www.nature.com/articles/538311a#citeas
 
+[10]
+Nicholas Carlini, David Wagner
+Audio Adversarial Examples: Targeted Attacks on Speech-to-Text
+https://arxiv.org/pdf/1801.01944.pdf
 
+[11]
+Trolls turned Tay, Microsoft’s fun millennial AI bot, into a genocidal maniac
+https://www.washingtonpost.com/news/the-intersect/wp/2016/03/24/the-internet-turned-tay-microsofts-fun-millennial-ai-bot-into-a-genocidal-maniac/
 
+[12] W. S. McCulloch and W. Pitts. A logical calculus of the ideas immanent in nervous activity. The bulletin of mathematical biophysics, 5(4):115–133, 1943.
 
+[13] K. Hornik, M. Stinchcombe, and H. White. Multilayer feedforward networks
+are universal approximators. Neural Networks, 2(5):359 – 366, 1989.
 
+[14] D. E. Rumelhart, G. E. Hinton, and R. J. Williams. Learning representations by back-propagating errors. Nature, 323(6088):533–536, 1986.
 
+[15] 
+Martin Popel, Marketa Tomkova, Jakub Tomek, Łukasz Kaiser, Jakob Uszkoreit, Ondřej Bojar & Zdeněk Žabokrtský 
+Transforming machine translation: a deep learning system reaches news translation quality comparable to human professionals
+https://www.nature.com/articles/s41467-020-18073-9
 
-
-
+[16]
+Thanh Thi Nguyen, Quoc Viet Hung Nguyen, Cuong M. Nguyen, Dung Nguyen, Duc Thanh Nguyen, Saeid Nahavandi
+Deep Learning for Deepfakes Creation and Detection: A Survey
+https://arxiv.org/pdf/1909.11573.pdf
 
 === INNE ===
 
